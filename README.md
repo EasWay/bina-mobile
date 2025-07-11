@@ -1,93 +1,143 @@
-"# Bina - Feminine Business Tracker
+# Bina Mobile App
 
-A beautiful, feminine business tracking application designed for fashion entrepreneurs. Built with React, FastAPI, and MongoDB.
+A React Native mobile application for business management, built with Expo.
 
-## 🌟 Features
+## Features
 
-### 💖 Beautiful Feminine Design
-- Soft rose and pink color palette
-- Rounded, modern UI elements
-- Gradient backgrounds and smooth transitions
-- Mobile-responsive design
+- **Authentication**: Secure login with Supabase
+- **Dashboard**: Business overview with charts and analytics
+- **Inventory Management**: Track products and stock levels
+- **Sales Tracking**: Record and monitor sales transactions
+- **KYC Management**: Customer verification and records
+- **Profile Management**: User settings and app statistics
 
-### 🔐 Authentication System
-- User registration and login
-- JWT token-based authentication
-- Protected routes and session management
+## Prerequisites
 
-### 📊 Sales Analytics Dashboard
-- Visual sales trends with interactive charts
-- Total sales and orders tracking
-- Top-selling products insights
-- Real-time revenue calculations
+- Node.js (v16 or higher)
+- npm or yarn
+- Expo CLI (`npm install -g @expo/cli`)
+- Expo Go app on your mobile device (for testing)
 
-### 📦 Inventory Management
-- Add, edit, and delete products
-- Image upload with base64 storage
-- Stock level tracking and low-stock alerts
-- Category filtering and search functionality
-- Automated inventory updates with sales
+## Setup Instructions
 
-### 👥 Customer Directory (KYC)
-- Customer information management
-- Phone, address, and referral tracking
-- Gender-based filtering and statistics
-- Easy search and customer lookup
+### 1. Install Dependencies
 
-### 👤 Profile Management
-- User profile display
-- Account settings and preferences
-- Secure logout functionality
+```bash
+cd frontend/mobile
+npm install
+```
 
-## 🚀 Tech Stack
+### 2. Configure Supabase
 
-- **Frontend**: React 18, Tailwind CSS, Chart.js
-- **Backend**: FastAPI, Python 3.11
-- **Database**: MongoDB
-- **Authentication**: JWT tokens
-- **Icons**: Lucide React
+Update the Supabase configuration in `src/services/supabaseClient.js`:
 
-## 📱 Mobile-First Design
+```javascript
+const supabaseUrl = 'YOUR_SUPABASE_URL';
+const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+```
 
-Optimized for mobile usage with:
-- Bottom navigation bar
-- Touch-friendly interface
-- Responsive layouts
-- Smooth animations
+### 3. Start the Development Server
 
-## 🎯 Perfect For
+```bash
+npm start
+```
 
-- Fashion entrepreneurs
-- Small business owners
-- Startup businesses
-- Retail inventory management
-- Customer relationship management
+This will open the Expo development server. You can:
+- Scan the QR code with Expo Go app on your phone
+- Press 'a' to open on Android emulator
+- Press 'i' to open on iOS simulator
 
-## 🔧 Getting Started
+## Project Structure
 
-1. **Start the application**:
-   ```bash
-   sudo supervisorctl restart all
-   ```
+```
+mobile/
+├── src/
+│   ├── components/          # React Native components
+│   │   ├── Dashboard.js
+│   │   ├── Inventory.js
+│   │   ├── KYC.js
+│   │   ├── Login.js
+│   │   ├── Profile.js
+│   │   └── Sales.js
+│   ├── context/            # React Context for state management
+│   │   └── AuthContext.js
+│   └── services/           # API services
+│       ├── authService.js
+│       └── supabaseClient.js
+├── App.js                  # Main app component
+└── package.json           # Dependencies
+```
 
-2. **Access the app**:
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8001
+## Key Dependencies
 
-3. **Create an account** and start tracking your business!
+- **@react-navigation/native**: Navigation framework
+- **@react-navigation/bottom-tabs**: Bottom tab navigation
+- **@react-navigation/stack**: Stack navigation
+- **@supabase/supabase-js**: Supabase client
+- **expo-secure-store**: Secure storage for tokens
+- **react-native-chart-kit**: Charts and graphs
+- **@expo/vector-icons**: Icon library
 
-## 📊 Usage
+## Development Notes
 
-1. **Register/Login** to access your dashboard
-2. **Add Products** to build your inventory
-3. **Record Sales** to track revenue and update stock
-4. **Manage Customers** for relationship building
-5. **View Analytics** to understand your business performance
+### Authentication
+- Uses Supabase for authentication
+- Tokens stored securely using `expo-secure-store`
+- Automatic session management
 
-## ✨ Status
+### Navigation
+- Bottom tab navigation for main screens
+- Stack navigation for authentication flow
+- Protected routes based on authentication state
 
-🟢 **Fully Functional** - All features tested and working
-🟢 **Production Ready** - Backend and frontend integration complete
-🟢 **Mobile Optimized** - Responsive design confirmed
+### Styling
+- Custom StyleSheet components
+- Consistent color scheme with web version
+- Responsive design for different screen sizes
 
-Built with ❤️ for female entrepreneurs" 
+### Data Management
+- Mock data currently used for development
+- Ready for API integration
+- State management with React Context
+
+## Building for Production
+
+### Android
+```bash
+expo build:android
+```
+
+### iOS
+```bash
+expo build:ios
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Metro bundler issues**: Clear cache with `expo start -c`
+2. **Dependencies issues**: Delete `node_modules` and run `npm install`
+3. **Expo Go connection**: Ensure phone and computer are on same network
+
+### Development Tips
+
+- Use Expo Go for rapid development and testing
+- Enable hot reloading for faster development
+- Use React Native Debugger for debugging
+- Test on both iOS and Android devices
+
+## Next Steps
+
+1. **API Integration**: Replace mock data with real API calls
+2. **Push Notifications**: Implement push notifications
+3. **Offline Support**: Add offline functionality
+4. **Performance**: Optimize for better performance
+5. **Testing**: Add unit and integration tests
+
+## Contributing
+
+1. Follow the existing code style
+2. Test on both iOS and Android
+3. Update documentation for new features
+4. Ensure all features work offline when possible 
