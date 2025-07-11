@@ -31,8 +31,10 @@
         "android.permission.ACCESS_NETWORK_STATE",
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE",
-        "android.permission.CAMERA"
-      ]
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.strange_r1.binamobile"
     },
     "web": {
       "favicon": "./assets/icon.jpg"
@@ -47,6 +49,11 @@
           "cameraPermission": "The app accesses your camera to let you take photos."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "5ba6becd-b8e3-44aa-a531-f5b0dee8b71f"
+      }
+    }
   }
 }
